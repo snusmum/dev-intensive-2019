@@ -53,9 +53,4 @@ class User(
         fun build() = User(id, firstName, lastName, avatar, rating, respect, lastVisit, isOnline)
     }
 
-    override fun toString(): String {
-        return "User(id='$id', firstName=$firstName, lastName=$lastName, avatar=$avatar, rating=$rating, respect=$respect, lastVisit=$lastVisit, isOnline=$isOnline)"
-    }
-
-
 }
