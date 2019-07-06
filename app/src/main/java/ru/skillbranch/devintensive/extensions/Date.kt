@@ -28,35 +28,17 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
     return this
 }
 
-enum class TimeUnits {
-    SECOND {
-        override fun plural(value: Int): String {
-            return pluralInner(value, "секуну", "секунды", "секунд")
-        }
-    },
-    MINUTE {
-        override fun plural(value: Int): String {
-            return pluralInner(value, "минуту", "минуты", "минут")
-        }
-    },
-    HOUR {
-        override fun plural(value: Int): String {
-            return pluralInner(value, "час", "часа", "часов")
-        }
-    },
-    DAY {
-        override fun plural(value: Int): String {
-            return pluralInner(value, "день", "дня", "дней")
-        }
-    };
+enum class TimeUnits(private val oneText: String, private val lessFiveText: String, private val othersText: String) {
 
-    abstract fun plural(value: Int): String
+    SECOND("секунду", "секунды", "секунд"),
+    MINUTE("минуту", "минуты", "минут"),
+    HOUR("час", "часа", "часов"),
+    DAY( "день", "дня", "дней");
 
-    internal fun pluralInner(value: Int, oneText: String, lessFiveText: String, othersText: String): String {
-
+    fun plural(value: Int): String {
         fun valWithText(t: String): String = "$value $t"
 
-        val stringValue = value.toString()
+        val stringValue = value.toString() + oneText
         if (stringValue.endsWith("11")
             || stringValue.endsWith("12")
             || stringValue.endsWith("13")

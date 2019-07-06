@@ -10,8 +10,8 @@ class User(
     var avatar: String?,
     var rating: Int = 0,
     var respect: Int = 0,
-    var lastVisit: Date? = Date(),
-    var isOnline: Boolean = false
+    val lastVisit: Date? = Date(),
+    val isOnline: Boolean = false
 ) {
 
     constructor(id: String, firstName: String?, lastName: String?) : this(
@@ -20,6 +20,19 @@ class User(
         lastName = lastName,
         avatar = null
     )
+
+    fun printMe():Unit{
+        println("""
+            id: $id
+            firstName: $firstName
+            lastName: $lastName
+            avatar: $avatar
+            rating: $rating
+            respect: $respect
+            lastVisit: $lastVisit
+            isOnline: $isOnline
+        """.trimIndent())
+    }
 
     companion object Factory {
         private var lastId: Int = -1
@@ -33,7 +46,7 @@ class User(
     }
 
     data class Builder (
-        var id: String = "",
+        var id: String = (++lastId).toString(),
         var firstName: String? = null,
         var lastName: String? = null,
         var avatar: String? = null,
@@ -50,6 +63,7 @@ class User(
         fun respect(respect: Int ) = apply { this.respect = respect }
         fun lastVisit(lastVisit: Date) = apply { this.lastVisit = lastVisit }
         fun isOnline(isOnline: Boolean ) = apply { this.isOnline = isOnline }
+
         fun build() = User(id, firstName, lastName, avatar, rating, respect, lastVisit, isOnline)
     }
 
