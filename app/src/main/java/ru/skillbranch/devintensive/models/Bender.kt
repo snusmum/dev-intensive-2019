@@ -23,7 +23,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             status = status.nextStatus()
             if (status == Status.NORMAL) question = Question.NAME
             "Это неправильный ответ" +
-                    (if (status == Status.NORMAL) ". Давай всё по новой" else "") +
+                    (if (status == Status.NORMAL) ". Давай все по новой" else "") +
                     "\n${question.question}" to status.color
         }
     }
