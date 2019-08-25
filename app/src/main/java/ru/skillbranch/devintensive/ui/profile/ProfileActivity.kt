@@ -11,16 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile_constraint.*
-import kotlinx.android.synthetic.main.activity_profile_constraint.btn_switch_theme
-import kotlinx.android.synthetic.main.activity_profile_constraint.et_about
-import kotlinx.android.synthetic.main.activity_profile_constraint.et_first_name
-import kotlinx.android.synthetic.main.activity_profile_constraint.et_last_name
-import kotlinx.android.synthetic.main.activity_profile_constraint.et_repository
-import kotlinx.android.synthetic.main.activity_profile_constraint.ic_eye
-import kotlinx.android.synthetic.main.activity_profile_constraint.tv_nick_name
-import kotlinx.android.synthetic.main.activity_profile_constraint.tv_rating
 import ru.skillbranch.devintensive.R
 import ru.skillbranch.devintensive.models.Profile
 import ru.skillbranch.devintensive.viewmodels.ProfileViewModel
